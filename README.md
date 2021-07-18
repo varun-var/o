@@ -1,19 +1,25 @@
-# tuya-cloud-dimming-lights #
+# tuya-string-lights #
 
 This project is developed using Tuya SDK, which enables you to quickly develop smart devices, branded APP, cloud development project, etc.
 
 For more information, please check Tuya Developer Click and Connect Challenge https://pages.tuya.com/develop/ClickAndConnect_TuyaDeveloper?_source=e9684c7ca6b31e7221c8420f5af94631
 
 
----
 ## Installation
 Install or upgrade tuya-bulb-control:
 ```
 $ pip install tuya-bulb-control --upgrade
 ```
+
+<h3>Functions:</h3>
+Check the functions depending on the type of light you are using, incase of error use different version of the function <br>
+
+String lights: on, off, brightness, etc
 <br>
 
-Demo code:
+
+<h3>Sample code:</h3>
+
 ```Python
 from tuya_bulb_control import Bulb
 
@@ -30,34 +36,27 @@ lights = Bulb(
 )
 
 
-# Turn on the dimming-lights
+# Turn on the string-lights
 lights.turn_on()
 
 
-# Turn off the dimming-lights
+# Turn off the string-lights
 lights.turn_off()
 
 
-# Toggle the dimming-lights
+# Toggle the string-lights
 lights.set_toggle()
 
 
-# Turn off the dimming-lights after 5 minutes
+# Turn off the string-lights after 5 minutes
 lights.set_toggle_timer(value=5)
 
 
 #Other functions used
-#depends on the bulb used
-#check the bulb and its functions in api of the project
+#depends on the lights used
+#check the lights and its functions in api of the project
 ```
-<br>
 
-
-<h3>Functions:</h3>
-Check the functions depending on the type of light you are using, incase of error use different version of the function <br>
-
-Dimming lights: on, off, brightness, etc
-<br>
 <br>
 
 <h3>Important:</h3>
@@ -85,5 +84,5 @@ client_id, client_key,device_id are required for the project to work.
 Go to <a href="https://iot.tuya.com/cloud/appinfo/cappId/setting" target="_blanck">Cloud -> API Group</a> and enable **Authorization management**, **Device Management** and **Device Control**.
 <br>
 <br>
-<h3>Note:</h3>
-Install the requirements files libraies incase of errors, chaneg versions of function based on error and function used.
+<h3>Errors:</h3>
+Install the requirements files libraies incase of errors, change versions of function based on error and function used, you can see the python console for errors.
