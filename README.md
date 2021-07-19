@@ -8,16 +8,14 @@ For more information, please check Tuya Developer Click and Connect Challenge ht
 <h3>Install:</h3>
 
 ```
-pip install paho-mqtt
+pip3 install tuya-iot-py-sdk
 ```
 
 ```
 pip install pycryptodome
 ```
 
-```
-pip3 install tuya-iot-py-sdk
-```
+
 
 
 <h3>Functions:</h3>
