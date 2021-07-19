@@ -20,7 +20,18 @@ pip3 install tuya-iot-py-sdk
 ```
 
 
-<h3>Demo code:</h3>
+<h3>Functions:</h3>
+off<br>
+on<br>
+timer<br>
+timer-on<br>
+time-off<br>
+functions<br>
+device-info<br>
+<br>
+
+
+<h3>Program code:</h3>
 
 ```Python
 
@@ -39,7 +50,7 @@ from tuya_iot import (
 )
 
 tuya_logger.setLevel(logging.DEBUG)
-# Init
+
 openapi = TuyaOpenAPI(ENDPOINT, ACCESS_ID, ACCESS_KEY, ProjectType.INDUSTY_SOLUTIONS)
 
 openapi.login(USERNAME, PASSWORD)
@@ -47,19 +58,11 @@ openmq = TuyaOpenMQ(openapi)
 openmq.start()
 
 print("device test-> ", openapi.token_info.uid)
-# Get device list
-# assetManager = TuyaAssetManager(openapi)
-# devIds = assetManager.getDeviceList(ASSET_ID)
 
 
-# Update device status
 deviceManager = TuyaDeviceManager(openapi, openmq)
-
-
-homeManager = TuyaHomeManager(openapi, openmq, deviceManager)
-homeManager.update_device_cache()
-# # deviceManager.updateDeviceCaches(devIds)
-# device = deviceManager.deviceMap.get(DEVICE_ID)
+deviceManager.updateDeviceCaches(devIds)
+device = deviceManager.deviceMap.get(DEVICE_ID)
 
 
 class tuyaDeviceListener(TuyaDeviceListener):
@@ -75,15 +78,15 @@ class tuyaDeviceListener(TuyaDeviceListener):
 
 deviceManager.add_device_listener(tuyaDeviceListener())
 
-# Turn on the light
-# deviceManager.sendCommands(device.id, [{'code': 'switch_led', 'value': True}])
-# time.sleep(1)
-# print('status: ', device.status)
+# Turn on the string light
+deviceManager.sendCommands(device.id, [{'code': 'switch_led', 'value': True}])
+time.sleep(1)
+print('status: ', device.status)
 
-# # Turn off the light
-# deviceManager.sendCommands(device.id, [{'code': 'switch_led', 'value': False}])
-# time.sleep(1)
-# print('status: ', device.status)
+# # Turn off the string light
+deviceManager.sendCommands(device.id, [{'code': 'switch_led', 'value': False}])
+time.sleep(1)
+print('status: ', device.status)
 
 flag = True
 while True:
@@ -98,7 +101,10 @@ while True:
 
 ```
 
-<h3>Fill the details:</h3>
+
+<br>
+
+<h3>Required details:</h3>
 
 ```
 # ACCESS_ID = # your_access_id
@@ -110,7 +116,7 @@ while True:
 # ENDPOINT = "https://openapi.tuyacn.com"
 ```
 
-<h3>Procedure:</h3>
+<h3>Steps:</h3>
 
 #### Step 1: CLIENT_ID and SECRET_KEY
 - Register or Login on <a href="https://auth.tuya.com" target="_blanck">Tuya</a>.
@@ -131,7 +137,4 @@ while True:
 Go to <a href="https://iot.tuya.com/cloud/appinfo/cappId/setting" target="_blanck">Cloud -> API Group</a> and enable **Authorization management**, **Device Management** and **Device Control**.
 
 <br>
-<h3>Note:</h3>
-In case of errors comment on this project.
-
 
